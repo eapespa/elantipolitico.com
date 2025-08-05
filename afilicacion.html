@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/afiliacion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <title>LAP Los Anti-Político</title>
+
+<body>
+
+    <header class="header__main">
+        <nav class="header__nav container" id="menuOriginal">
+
+            <div class="header__main__contenedorLogo">
+                <img src="imagenes/LAP.png" class="logo__img">
+                <h1 class="header__titulo">Los Anti-Políticos</h1>
+            </div>
+
+
+
+            <nav class="nav__menu">
+                <img src="imagenes/bespaña.jpg" alt="Bandera de España" class="nav__icono_bandera">
+                <a class="nav__menu_item" href="Index.html">Inicio</a>
+                <a class="nav__menu_item" href="sobremi.html">Sobre mí</a>
+                <a class="nav__menu_item" href="contacto.html">Contacto</a>
+                <a class="nav__menu_item" href="promocionar.html">Promocionar</a>
+                <a class="nav__menu_item" href="donaciones.html">Donaciones</a>
+                <a class="nav__menu_item" href="afilicacion.html">Afíliate</a>
+            </nav>
+        </nav>
+        </div>
+    </header>
+    <!-- MENÚ FIJO -->
+    <header class="header__main__fixed" id="menuFijo">
+        <nav class="header__nav container custom__fixed__header__nav">
+
+            <div class="header__main__contenedorLogo">
+                <img src="imagenes/LAP.png" class="logo__img">
+
+
+                <button class="menu__toggle" id="menuToggle">
+                    ☰
+                </button>
+            </div>
+
+            <div class="nav__menu__fixed" id="menuResponsive">
+                <img src="imagenes/bespaña.jpg" alt="Bandera de España" class="nav__icono_bandera">
+                <a class="nav__menu_item item__fixed" href="Index.html">Inicio</a></a>
+                <a class="nav__menu_item item__fixed" href="sobremi.html">Sobre mí</a>
+                <a class="nav__menu_item item__fixed" href="contacto.html">Contacto</a>
+                <a class="nav__menu_item" href="promocionar.html">Promocionar</a>
+                <a class="nav__menu_item item__fixed" href="donaciones.html">Donaciones</a>
+                <a class="nav__menu_item item__fixed" href="afilicacion.html">Afíliate</a>
+            </div>
+        </nav>
+        </div>
+    </header>
+    <!-- MENÚ FIJO -->
+    <div class="mainFirst">
+        <h1 class="mainFirst__Titulo">Ninguna persona puede <br> ganar un partido por sí misma</h1>
+        <p class="mainFirst__subtitleSobreMi">Pelé</p>
+    </div>
+
+    <div class="mosca__desplazamiento" id="btnSubir" onclick="irArriba()"><svg xmlns="http://www.w3.org/2000/svg"
+            class="flecha__arriba" width="20" height="20" fill="white" viewBox="0 0 24 24">
+            <path d="M12 4l-8 8h6v8h4v-8h6z" />
+        </svg> </div>
+    <main class="mainTercero">
+        <div class="mainTercero__parrafo">
+            <div class="mainTercero__parrafo__afiliacion">
+                <section id="one" class="style1">
+                    <div class="inner1">
+                        <header class="align-center">
+                            <h2>Afíliate</h2>
+                        </header>
+                    </div>
+                </section>
+                <p>Si has llegado hasta aquí es que quieres un cambio pero YA! Para llevarlo a cabo, te dejo
+                    un código QR o un enlace para afiliarte al partido y dejar clara tu postura con respecto a la nueva
+                    España que quieres. </p>
+
+                <p>Los datos se guardarán en un documento tipo Excel (datos del dni más un correo) y no serán usados más
+                    que para la comprobación del
+                    número de afiliados al partido. Afiliarte no conlleva ninguna cuota o gasto económico, no se
+                    compartirán con terceros y en todo momento podrá ejercer su
+                    derecho a la eliminación total de los mismos mandando un correo y manifestándolo. </p>
+
+                <p>¿Para qué necesitamos tus datos? Llegado el momento, se requerirán unos avales que no son más que la
+                    firma de todas las personas afiliadas para presentarlas ya que dada la ley actual, no podemos
+                    presentarnos sin más, aunque tengamos 30 millones de votantes, necesitamos miles de
+                    firmas de nuestros afiliados para presentarlas (usando el modelo oficial de aval que proporciona la
+                    Junta Electoral y que se adjuntaría en esta Web para su descarga) a la hora de constituir el partido
+                    y presentarse a
+                    las elecciones.</p>
+
+
+            </div>
+
+            <div class="mainTercero__parrafo__afiliacion2">
+                <section id="one" class="style1 style__sublinea">
+                    <div class="inner1">
+                        <header class="align-center">
+                            <h2>formulario de inscripción</h2>
+                        </header>
+                    </div>
+                </section>
+                <div class="contenedor__qr__enlace">
+                    <img src="imagenes/QRegistro.png" tabindex="-1" alt="QR" class="codigo__qr">
+
+                    <button class="enlace__afiliacion" tabindex="-1">
+                        <a href="https://forms.office.com/r/ahWRq5S0QX" target="_blank">Afíliate!</a>
+                </div>
+
+
+
+            </div>
+
+            <div class="mainTercero__parrafo__afiliacion3">
+
+                <form id="afiliacion-form">
+                    <label>
+                        Nombre:
+                        <input type="text" name="nombre" required />
+                    </label><br><br>
+
+                    <label>
+                        Primer apellido:
+                        <input type="text" name="apellido1" required />
+                    </label><br><br>
+
+                    <label>
+                        Segundo apellido:
+                        <input type="text" name="apellido2" required />
+                    </label><br><br>
+
+                    <label>
+                        Correo electrónico:
+                        <input type="email" name="email" required />
+                    </label><br><br>
+
+                    <label>
+                        DNI:
+                        <input type="text" name="dni" required />
+                    </label><br><br>
+
+                    <label>
+                        Provincia:
+                        <input type="text" name="provincia" required />
+                    </label><br><br>
+
+                    <fieldset>
+                        <legend>Tipo de pago:</legend>
+                        <label>
+                            <input type="radio" name="tipo" value="suscripcion" checked> Suscripción mensual
+                        </label><br>
+                        <label>
+                            <input type="radio" name="tipo" value="donacion"> Donación única
+                        </label>
+                    </fieldset><br>
+
+                    <label id="cuota-label">
+                        Cuota mensual:
+                        <select name="cuota">
+                            <option value="5">5 €</option>
+                            <option value="10">10 €</option>
+                            <option value="15">15 €</option>
+                            <option value="50">50 €</option>
+                        </select>
+                    </label><br><br>
+
+                    <label id="monto-donacion-label" style="display: none;">
+                        Monto de la donación (€):
+                        <input type="number" name="monto" step="0.01" min="1" />
+                    </label><br><br>
+
+                    <button type="submit">Ir al pago</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 LAP Los Anti-Políticos. Todos los derechos reservados.</p>
+        <div class="contenedor de banderas">
+            <img src="imagenes/bespaña.jpg" alt="Bandera de España" class="footer_banderaEspaña">
+        </div>
+        <p><a class="nav__footer_item" href="Index.html">Inicio</a> |
+            <a class="nav__footer_item" href="sobremi.html">Sobre mí</a> |
+            <a class="nav__footer_item" href="contacto.html">Contacto</a> |
+            <a class="nav__footer_item" href="promocionar.html">Promocionar</a> |
+            <a class="nav__footer_item" href="donaciones.html">Donaciones</a> |
+            <a class="nav__footer_item" href="afilicacion.html">Afíliate</a>
+        </p>
+        <div class="contenedor__safeCreativeFooter">
+
+            <img src="imagenes/safecreative.png" alt="Bandera de España" class="footer_safecreative">
+        </div>
+    </footer>
+
+</body>
+</head>
+
+</html>
+
+<script>
+    const _0x4b8354 = _0x5051; function _0x2e90() { const _0x264f0f = ['from', 'pathname', 'scrollTo', 'scrollTop', 'addEventListener', 'forEach', 'click', 'ArrowLeft', 'DOMContentLoaded', '710122WtqwIW', 'split', 'aria-expanded', '152fowdYg', 'querySelectorAll', 'active', 'setAttribute', 'focus', '1010440PXttTO', 'length', '13448016OEOLug', 'Enter', 'onscroll', 'ArrowRight', 'classList', '.nav__menu_item', 'btnSubir', 'tabindex', 'getAttribute', '6851052AMEUEl', 'location', '.profile-header', '13722aDuXqP', '603751YEBzrY', 'hidden', 'none', 'true', 'getElementById', 'style', 'smooth', 'flex', 'keydown', 'preventDefault', '.nav__footer_item', '6962500ZcddNV', 'display', 'pop', 'key']; _0x2e90 = function () { return _0x264f0f; }; return _0x2e90(); } (function (_0x5a98a4, _0x580b9b) { const _0x5a0f0f = _0x5051, _0x4eb6de = _0x5a98a4(); while (!![]) { try { const _0xc60aa0 = -parseInt(_0x5a0f0f(0x107)) / 0x1 + parseInt(_0x5a0f0f(0xf3)) / 0x2 * (parseInt(_0x5a0f0f(0x106)) / 0x3) + -parseInt(_0x5a0f0f(0xf8)) / 0x4 + -parseInt(_0x5a0f0f(0x112)) / 0x5 + parseInt(_0x5a0f0f(0x103)) / 0x6 + -parseInt(_0x5a0f0f(0xf0)) / 0x7 + parseInt(_0x5a0f0f(0xfa)) / 0x8; if (_0xc60aa0 === _0x580b9b) break; else _0x4eb6de['push'](_0x4eb6de['shift']()); } catch (_0xc8816) { _0x4eb6de['push'](_0x4eb6de['shift']()); } } }(_0x2e90, 0xc83c1)); function _0x5051(_0x7d45d7, _0x99cf81) { const _0x2e9076 = _0x2e90(); return _0x5051 = function (_0x50510c, _0x1020c4) { _0x50510c = _0x50510c - 0xf0; let _0x516cf2 = _0x2e9076[_0x50510c]; return _0x516cf2; }, _0x5051(_0x7d45d7, _0x99cf81); } const btn = document['getElementById'](_0x4b8354(0x100)); function comprobarScroll() { const _0x1b396e = _0x4b8354; document['documentElement'][_0x1b396e(0x119)] > 0x2bc ? btn[_0x1b396e(0x10c)][_0x1b396e(0x113)] = _0x1b396e(0x10e) : btn[_0x1b396e(0x10c)][_0x1b396e(0x113)] = _0x1b396e(0x109); } window[_0x4b8354(0xfc)] = comprobarScroll, window['onload'] = comprobarScroll; function irArriba() { const _0x27446f = _0x4b8354; window[_0x27446f(0x118)]({ 'top': 0x0, 'behavior': _0x27446f(0x10d) }); } document[_0x4b8354(0x11a)](_0x4b8354(0x11e), function () { const _0x1f8aad = _0x4b8354, _0x3da96d = window[_0x1f8aad(0x104)][_0x1f8aad(0x117)][_0x1f8aad(0xf1)]('/')[_0x1f8aad(0x114)](), _0x2aa68f = document[_0x1f8aad(0xf4)](_0x1f8aad(0xff)); _0x2aa68f[_0x1f8aad(0x11b)](_0x428427 => { const _0x4b5146 = _0x1f8aad, _0x42deb0 = _0x428427[_0x4b5146(0x102)]('href'); _0x42deb0 === _0x3da96d && _0x428427[_0x4b5146(0xfe)]['add'](_0x4b5146(0xf5)); }); }), window[_0x4b8354(0x11a)]('DOMContentLoaded', () => { const _0x4dd1a6 = _0x4b8354, _0x3e58be = Array[_0x4dd1a6(0x116)](document[_0x4dd1a6(0xf4)]('.nav__menu_item')); _0x3e58be['forEach'](_0x1f33b6 => _0x1f33b6[_0x4dd1a6(0xf6)](_0x4dd1a6(0x101), '0')), _0x3e58be[_0x4dd1a6(0x11b)]((_0x3e96ba, _0x1bd522) => { const _0x1d752b = _0x4dd1a6; _0x3e96ba[_0x1d752b(0x11a)](_0x1d752b(0x10f), _0x1b40af => { const _0x5b6b24 = _0x1d752b; if (_0x1b40af['key'] === _0x5b6b24(0xfd)) { _0x1b40af['preventDefault'](); const _0x3c9c28 = (_0x1bd522 + 0x1) % _0x3e58be[_0x5b6b24(0xf9)]; _0x3e58be[_0x3c9c28][_0x5b6b24(0xf7)](); } else { if (_0x1b40af[_0x5b6b24(0x115)] === _0x5b6b24(0x11d)) { _0x1b40af[_0x5b6b24(0x110)](); const _0x497ddf = (_0x1bd522 - 0x1 + _0x3e58be[_0x5b6b24(0xf9)]) % _0x3e58be['length']; _0x3e58be[_0x497ddf][_0x5b6b24(0xf7)](); } } }); }); }), window[_0x4b8354(0x11a)](_0x4b8354(0x11e), () => { const _0x25b8b7 = _0x4b8354, _0x23c79d = Array[_0x25b8b7(0x116)](document[_0x25b8b7(0xf4)](_0x25b8b7(0x111))); _0x23c79d[_0x25b8b7(0x11b)](_0x4ec980 => _0x4ec980[_0x25b8b7(0xf6)]('tabindex', '0')), _0x23c79d[_0x25b8b7(0x11b)]((_0x30b4bb, _0x2c2cbf) => { const _0x1242e1 = _0x25b8b7; _0x30b4bb[_0x1242e1(0x11a)](_0x1242e1(0x10f), _0x48d7cd => { const _0x52b58e = _0x1242e1; if (_0x48d7cd[_0x52b58e(0x115)] === _0x52b58e(0xfd)) { _0x48d7cd['preventDefault'](); const _0x19ee38 = (_0x2c2cbf + 0x1) % _0x23c79d[_0x52b58e(0xf9)]; _0x23c79d[_0x19ee38][_0x52b58e(0xf7)](); } else { if (_0x48d7cd[_0x52b58e(0x115)] === 'ArrowLeft') { _0x48d7cd['preventDefault'](); const _0x511479 = (_0x2c2cbf - 0x1 + _0x23c79d[_0x52b58e(0xf9)]) % _0x23c79d['length']; _0x23c79d[_0x511479][_0x52b58e(0xf7)](); } } }); }); }), document[_0x4b8354(0x11a)](_0x4b8354(0x11e), () => { const _0x5a188b = _0x4b8354, _0x405b0f = Array[_0x5a188b(0x116)](document['querySelectorAll'](_0x5a188b(0x105))); function _0x3916ec(_0x580006) { const _0x56407a = _0x5a188b; _0x405b0f[_0x56407a(0x11b)]((_0x1b7860, _0x597419) => { const _0x5de98e = _0x56407a; _0x597419 === _0x580006 ? (_0x1b7860[_0x5de98e(0xf6)](_0x5de98e(0x101), '0'), _0x1b7860['focus']()) : _0x1b7860[_0x5de98e(0xf6)](_0x5de98e(0x101), '-1'); }); } _0x405b0f[_0x5a188b(0x11b)]((_0x123046, _0xd0625f) => { const _0x551206 = _0x5a188b, _0x48cd04 = _0x123046[_0x551206(0x102)]('aria-controls'), _0x19957a = document[_0x551206(0x10b)](_0x48cd04); _0x123046[_0x551206(0x11a)](_0x551206(0x11c), () => { _0x416448(_0x123046, _0x19957a); }), _0x123046['addEventListener']('keydown', _0x9d8356 => { const _0x82b244 = _0x551206; if (_0x9d8356[_0x82b244(0x115)] === _0x82b244(0xfb) || _0x9d8356[_0x82b244(0x115)] === '\x20') _0x9d8356[_0x82b244(0x110)](), _0x416448(_0x123046, _0x19957a); else { if (_0x9d8356[_0x82b244(0x115)] === _0x82b244(0xfd)) { _0x9d8356[_0x82b244(0x110)](); const _0x49c97f = (_0xd0625f + 0x1) % _0x405b0f[_0x82b244(0xf9)]; _0x3916ec(_0x49c97f); } else { if (_0x9d8356[_0x82b244(0x115)] === _0x82b244(0x11d)) { _0x9d8356[_0x82b244(0x110)](); const _0x3fe3fb = (_0xd0625f - 0x1 + _0x405b0f[_0x82b244(0xf9)]) % _0x405b0f[_0x82b244(0xf9)]; _0x3916ec(_0x3fe3fb); } } } }); }); function _0x416448(_0x5810e1, _0x5c1620) { const _0x16e098 = _0x5a188b, _0x528718 = _0x5810e1[_0x16e098(0x102)]('aria-expanded') === 'true'; _0x528718 ? (_0x5810e1[_0x16e098(0xf6)](_0x16e098(0xf2), 'false'), _0x5c1620[_0x16e098(0x108)] = !![]) : (_0x5810e1['setAttribute'](_0x16e098(0xf2), _0x16e098(0x10a)), _0x5c1620[_0x16e098(0x108)] = ![]); } });
+
+    const menuOriginal = document.getElementById('menuOriginal');
+    const menuFijo = document.getElementById('menuFijo');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 5) {
+            menuOriginal.style.visibility = 'hidden';
+            menuOriginal.style.zIndex = '0';
+            menuFijo.style.visibility = 'visible';
+
+        } else {
+            menuOriginal.style.visibility = 'visible';
+            menuOriginal.style.zIndex = '1500';
+            menuFijo.style.visibility = 'hidden';
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('menuToggle');
+        const menu = document.getElementById('menuResponsive');
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    });
+</script>
+
+
+
+
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3"); // Reemplaza con tu clave pública de pruebas
+
+    const form = document.getElementById("afiliacion-form");
+    const tipoRadios = form.querySelectorAll('input[name="tipo"]');
+    const donacionRadio = form.querySelector('input[value="donacion"]');
+    const cuotaLabel = document.getElementById("cuota-label");
+    const montoLabel = document.getElementById("monto-donacion-label");
+
+    // Mostrar/ocultar campos según tipo de pago
+    tipoRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            if (donacionRadio.checked) {
+                cuotaLabel.style.display = "none";
+                montoLabel.style.display = "block";
+            } else {
+                cuotaLabel.style.display = "block";
+                montoLabel.style.display = "none";
+            }
+        });
+    });
+
+    // Enviar datos al backend para crear sesión de pago
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = {
+            nombre: form.nombre.value,
+            apellido1: form.apellido1.value,
+            apellido2: form.apellido2.value,
+            email: form.email.value,
+            dni: form.dni.value,
+            provincia: form.provincia.value,
+            tipo: form.tipo.value,
+            cuota: form.cuota ? parseInt(form.cuota.value) : null,
+            monto: form.monto ? parseFloat(form.monto.value) : null
+        };
+
+        try {
+            const res = await fetch("/api/create-checkout-session", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const session = await res.json();
+            if (session.id) {
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } else {
+                alert("Error al crear la sesión de pago.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error al conectar con el servidor.");
+        }
+    });
+</script>
