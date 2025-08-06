@@ -1224,3 +1224,25 @@
         }
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Ruta actual sin barra final ni extensión
+        const currentPath = window.location.pathname.replace(/\/$/, "").replace(/\.html$/, "");
+
+        const menuItems = document.querySelectorAll(".nav__menu_item");
+        menuItems.forEach(item => {
+            let href = item.getAttribute("href");
+            if (!href) return;
+
+            // Normaliza el href: quita .html y barra final
+            href = href.replace(/\/$/, "").replace(/\.html$/, "");
+            if (!href.startsWith("/")) {
+                href = "/" + href;
+            }
+
+            if (href === currentPath) {
+                item.classList.add("active");
+            }
+        });
+    });
+</script>

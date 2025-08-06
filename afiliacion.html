@@ -309,124 +309,123 @@
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("afiliacion-form");
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("afiliacion-form");
 
-  // Rellenar datos guardados
-  const savedData = sessionStorage.getItem("formData");
-  if (savedData) {
-    const data = JSON.parse(savedData);
+        // Rellenar datos guardados
+        const savedData = sessionStorage.getItem("formData");
+        if (savedData) {
+            const data = JSON.parse(savedData);
 
-    form.nombre.value = data.nombre || "";
-    form.apellido1.value = data.apellido1 || "";
-    form.apellido2.value = data.apellido2 || "";
-    form.email.value = data.email || "";
-    form.dni.value = data.dni || "";
-    form.provincia.value = data.provincia || "";
+            form.nombre.value = data.nombre || "";
+            form.apellido1.value = data.apellido1 || "";
+            form.apellido2.value = data.apellido2 || "";
+            form.email.value = data.email || "";
+            form.dni.value = data.dni || "";
+            form.provincia.value = data.provincia || "";
 
-    if (data.tipo) {
-      const tipoRadio = form.querySelector(`input[name="tipo"][value="${data.tipo}"]`);
-      if (tipoRadio) tipoRadio.checked = true;
-    }
+            if (data.tipo) {
+                const tipoRadio = form.querySelector(`input[name="tipo"][value="${data.tipo}"]`);
+                if (tipoRadio) tipoRadio.checked = true;
+            }
 
-    if (data.cuota) {
-      form.cuota.value = data.cuota;
-    }
+            if (data.cuota) {
+                form.cuota.value = data.cuota;
+            }
 
-    if (data.monto) {
-      form.monto.value = data.monto;
-    }
+            if (data.monto) {
+                form.monto.value = data.monto;
+            }
 
-    toggleFields(data.tipo || "suscripcion");
-  }
+            toggleFields(data.tipo || "suscripcion");
+        }
 
-  // Mostrar campos según tipo de pago
-  document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
-    radio.addEventListener("change", (e) => {
-      toggleFields(e.target.value);
+        // Mostrar campos según tipo de pago
+        document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
+            radio.addEventListener("change", (e) => {
+                toggleFields(e.target.value);
+            });
+        });
+
+        function toggleFields(tipo) {
+            const cuotaLabel = document.getElementById("cuota-label");
+            const donacionLabel = document.getElementById("monto-donacion-label");
+
+            if (tipo === "donacion") {
+                cuotaLabel.style.display = "none";
+                donacionLabel.style.display = "block";
+            } else {
+                cuotaLabel.style.display = "block";
+                donacionLabel.style.display = "none";
+            }
+        }
+
+        // Guardar datos al enviar
+        form.addEventListener("submit", (e) => {
+            const formData = {
+                nombre: form.nombre.value,
+                apellido1: form.apellido1.value,
+                apellido2: form.apellido2.value,
+                email: form.email.value,
+                dni: form.dni.value,
+                provincia: form.provincia.value,
+                tipo: form.tipo.value,
+                cuota: form.cuota?.value || null,
+                monto: form.monto?.value || null,
+            };
+            sessionStorage.setItem("formData", JSON.stringify(formData));
+        });
+
+        // Limpiar si estamos en página de éxito
+        if (window.location.pathname.includes("success")) {
+            sessionStorage.removeItem("formData");
+        }
+
+        // ✅ Limpiar SÓLO si se cambia de pestaña dentro de TU dominio
+        window.addEventListener("blur", () => {
+            // Esperamos 100ms y comprobamos si el documento sigue siendo visible y la URL está en tu dominio
+            setTimeout(() => {
+                if (document.visibilityState === "visible") return; // sigue visible
+                const currentOrigin = window.location.origin;
+                const active = document.activeElement;
+                const isLeaving = active && active.tagName === "A" && active.href && !active.href.startsWith(currentOrigin);
+
+                if (!isLeaving) {
+                    sessionStorage.removeItem("formData");
+                }
+            }, 100);
+        });
+
+        // 🔘 Botón de limpiar
+        const resetButton = document.getElementById("reset-form");
+        resetButton.addEventListener("click", () => {
+            form.reset();
+            sessionStorage.removeItem("formData");
+            toggleFields("suscripcion");
+        });
     });
-  });
-
-  function toggleFields(tipo) {
-    const cuotaLabel = document.getElementById("cuota-label");
-    const donacionLabel = document.getElementById("monto-donacion-label");
-
-    if (tipo === "donacion") {
-      cuotaLabel.style.display = "none";
-      donacionLabel.style.display = "block";
-    } else {
-      cuotaLabel.style.display = "block";
-      donacionLabel.style.display = "none";
-    }
-  }
-
-  // Guardar datos al enviar
-  form.addEventListener("submit", (e) => {
-    const formData = {
-      nombre: form.nombre.value,
-      apellido1: form.apellido1.value,
-      apellido2: form.apellido2.value,
-      email: form.email.value,
-      dni: form.dni.value,
-      provincia: form.provincia.value,
-      tipo: form.tipo.value,
-      cuota: form.cuota?.value || null,
-      monto: form.monto?.value || null,
-    };
-    sessionStorage.setItem("formData", JSON.stringify(formData));
-  });
-
-  // Limpiar si estamos en página de éxito
-  if (window.location.pathname.includes("success")) {
-    sessionStorage.removeItem("formData");
-  }
-
-  // ✅ Limpiar SÓLO si se cambia de pestaña dentro de TU dominio
-  window.addEventListener("blur", () => {
-    // Esperamos 100ms y comprobamos si el documento sigue siendo visible y la URL está en tu dominio
-    setTimeout(() => {
-      if (document.visibilityState === "visible") return; // sigue visible
-      const currentOrigin = window.location.origin;
-      const active = document.activeElement;
-      const isLeaving = active && active.tagName === "A" && active.href && !active.href.startsWith(currentOrigin);
-
-      if (!isLeaving) {
-        sessionStorage.removeItem("formData");
-      }
-    }, 100);
-  });
-
-  // 🔘 Botón de limpiar
-  const resetButton = document.getElementById("reset-form");
-  resetButton.addEventListener("click", () => {
-    form.reset();
-    sessionStorage.removeItem("formData");
-    toggleFields("suscripcion");
-  });
-});
 
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Ruta actual sin barra final ni extensión
-    const currentPath = window.location.pathname.replace(/\/$/, "").replace(/\.html$/, "");
+    document.addEventListener("DOMContentLoaded", function () {
+        // Ruta actual sin barra final ni extensión
+        const currentPath = window.location.pathname.replace(/\/$/, "").replace(/\.html$/, "");
 
-    const menuItems = document.querySelectorAll(".nav__menu_item");
-    menuItems.forEach(item => {
-        let href = item.getAttribute("href");
-        if (!href) return;
+        const menuItems = document.querySelectorAll(".nav__menu_item");
+        menuItems.forEach(item => {
+            let href = item.getAttribute("href");
+            if (!href) return;
 
-        // Normaliza el href: quita .html y barra final
-        href = href.replace(/\/$/, "").replace(/\.html$/, "");
-        if (!href.startsWith("/")) {
-            href = "/" + href;
-        }
+            // Normaliza el href: quita .html y barra final
+            href = href.replace(/\/$/, "").replace(/\.html$/, "");
+            if (!href.startsWith("/")) {
+                href = "/" + href;
+            }
 
-        if (href === currentPath) {
-            item.classList.add("active");
-        }
+            if (href === currentPath) {
+                item.classList.add("active");
+            }
+        });
     });
-});
-
 </script>

@@ -184,30 +184,10 @@
         </div>
     </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </head>
 
 </html>
-
-
-
-
-
-
-
-
 
 <script>
     const _0x42824c = _0x2ce1; function _0x2ce1(_0x394672, _0x4adf3e) { const _0x3a35e4 = _0x3a35(); return _0x2ce1 = function (_0x2ce1a9, _0x446664) { _0x2ce1a9 = _0x2ce1a9 - 0xe4; let _0x2e43dc = _0x3a35e4[_0x2ce1a9]; return _0x2e43dc; }, _0x2ce1(_0x394672, _0x4adf3e); } (function (_0x24fed4, _0x1cb806) { const _0x2580cd = _0x2ce1, _0x2c323c = _0x24fed4(); while (!![]) { try { const _0x431f60 = parseInt(_0x2580cd(0xe8)) / 0x1 + parseInt(_0x2580cd(0xef)) / 0x2 + -parseInt(_0x2580cd(0xf2)) / 0x3 * (parseInt(_0x2580cd(0xfa)) / 0x4) + parseInt(_0x2580cd(0xf6)) / 0x5 * (parseInt(_0x2580cd(0xe4)) / 0x6) + parseInt(_0x2580cd(0xf8)) / 0x7 + -parseInt(_0x2580cd(0xee)) / 0x8 * (parseInt(_0x2580cd(0xf5)) / 0x9) + parseInt(_0x2580cd(0xe9)) / 0xa * (-parseInt(_0x2580cd(0xf9)) / 0xb); if (_0x431f60 === _0x1cb806) break; else _0x2c323c['push'](_0x2c323c['shift']()); } catch (_0x4c2105) { _0x2c323c['push'](_0x2c323c['shift']()); } } }(_0x3a35, 0x2d4df), document[_0x42824c(0xeb)](_0x42824c(0xf4), function () { const _0x201b29 = _0x42824c, _0x22680f = window[_0x201b29(0xed)]['pathname'][_0x201b29(0xf0)]('/')[_0x201b29(0xe7)](), _0x326941 = document[_0x201b29(0xf1)](_0x201b29(0xec)); _0x326941[_0x201b29(0xe6)](_0x4a5ccd => { const _0x2c9c75 = _0x201b29, _0x3168df = _0x4a5ccd[_0x2c9c75(0xf3)](_0x2c9c75(0xea)); _0x3168df === _0x22680f && _0x4a5ccd['classList'][_0x2c9c75(0xe5)](_0x2c9c75(0xf7)); }); })); function _0x3a35() { const _0x37a3f9 = ['601336LRCkRZ', '566648JrmAvk', 'split', 'querySelectorAll', '3QMxXUH', 'getAttribute', 'DOMContentLoaded', '27RYnGxe', '30YeJaIB', 'active', '1384173bdnCVS', '25795KTiESw', '225436nyEovk', '343002IsyKBp', 'add', 'forEach', 'pop', '44357TrNJRG', '1710dXLvib', 'href', 'addEventListener', '.nav__menu_item', 'location']; _0x3a35 = function () { return _0x37a3f9; }; return _0x3a35(); }
@@ -239,4 +219,26 @@
             menu.classList.toggle('show');
         });
     });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Ruta actual sin barra final ni extensión
+    const currentPath = window.location.pathname.replace(/\/$/, "").replace(/\.html$/, "");
+
+    const menuItems = document.querySelectorAll(".nav__menu_item");
+    menuItems.forEach(item => {
+        let href = item.getAttribute("href");
+        if (!href) return;
+
+        // Normaliza el href: quita .html y barra final
+        href = href.replace(/\/$/, "").replace(/\.html$/, "");
+        if (!href.startsWith("/")) {
+            href = "/" + href;
+        }
+
+        if (href === currentPath) {
+            item.classList.add("active");
+        }
+    });
+});
 </script>
