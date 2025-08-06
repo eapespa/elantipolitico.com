@@ -376,25 +376,34 @@ document.addEventListener("DOMContentLoaded", () => {
     sessionStorage.setItem("formData", JSON.stringify(formData));
   });
 
-  // Limpiar datos si está en la página de éxito
+  // Limpiar si estamos en página de éxito
   if (window.location.pathname.includes("success")) {
     sessionStorage.removeItem("formData");
   }
 
-  //BORRAR SI CAMBIA DE PESTAÑA
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-      sessionStorage.removeItem("formData");
-    }
+  // ✅ Limpiar SÓLO si se cambia de pestaña dentro de TU dominio
+  window.addEventListener("blur", () => {
+    // Esperamos 100ms y comprobamos si el documento sigue siendo visible y la URL está en tu dominio
+    setTimeout(() => {
+      if (document.visibilityState === "visible") return; // sigue visible
+      const currentOrigin = window.location.origin;
+      const active = document.activeElement;
+      const isLeaving = active && active.tagName === "A" && active.href && !active.href.startsWith(currentOrigin);
+
+      if (!isLeaving) {
+        sessionStorage.removeItem("formData");
+      }
+    }, 100);
   });
 
-  //BOTÓN DE LIMPIEZA
+  // 🔘 Botón de limpiar
   const resetButton = document.getElementById("reset-form");
   resetButton.addEventListener("click", () => {
     form.reset();
     sessionStorage.removeItem("formData");
-    toggleFields("suscripcion"); 
+    toggleFields("suscripcion");
   });
 });
+
 </script>
 
