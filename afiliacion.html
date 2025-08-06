@@ -183,6 +183,7 @@
                     </label><br><br>
 
                     <button type="submit">Ir al pago</button>
+                    <button type="button" id="reset-form">Limpiar formulario</button>
                 </form>
 
 
@@ -309,11 +310,12 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Rellenar el formulario si hay datos guardados
+  const form = document.getElementById("afiliacion-form");
+
+  // Rellenar datos guardados
   const savedData = sessionStorage.getItem("formData");
   if (savedData) {
     const data = JSON.parse(savedData);
-    const form = document.getElementById("afiliacion-form");
 
     form.nombre.value = data.nombre || "";
     form.apellido1.value = data.apellido1 || "";
@@ -335,11 +337,10 @@ document.addEventListener("DOMContentLoaded", () => {
       form.monto.value = data.monto;
     }
 
-    // Mostrar campos según tipo
     toggleFields(data.tipo || "suscripcion");
   }
 
-  // Mostrar u ocultar campos al cambiar tipo de pago
+  // Mostrar campos según tipo de pago
   document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
     radio.addEventListener("change", (e) => {
       toggleFields(e.target.value);
@@ -359,9 +360,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Guardar datos al hacer submit
-  document.getElementById("afiliacion-form").addEventListener("submit", (e) => {
-    const form = e.target;
+  // Guardar datos al enviar
+  form.addEventListener("submit", (e) => {
     const formData = {
       nombre: form.nombre.value,
       apellido1: form.apellido1.value,
@@ -373,13 +373,28 @@ document.addEventListener("DOMContentLoaded", () => {
       cuota: form.cuota?.value || null,
       monto: form.monto?.value || null,
     };
-
     sessionStorage.setItem("formData", JSON.stringify(formData));
   });
 
-  // Limpiar datos si es página de éxito
+  // Limpiar datos si está en la página de éxito
   if (window.location.pathname.includes("success")) {
     sessionStorage.removeItem("formData");
   }
+
+  //BORRAR SI CAMBIA DE PESTAÑA
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      sessionStorage.removeItem("formData");
+    }
+  });
+
+  //BOTÓN DE LIMPIEZA
+  const resetButton = document.getElementById("reset-form");
+  resetButton.addEventListener("click", () => {
+    form.reset();
+    sessionStorage.removeItem("formData");
+    toggleFields("suscripcion"); 
+  });
 });
 </script>
+
