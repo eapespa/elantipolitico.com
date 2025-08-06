@@ -1226,23 +1226,30 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Ruta actual sin barra final ni extensión
-        const currentPath = window.location.pathname.replace(/\/$/, "").replace(/\.html$/, "");
+        // Obtiene y normaliza la ruta actual (sin barra final ni .html ni index.html)
+        let currentPath = window.location.pathname
+            .replace(/\/$/, "")
+            .replace(/index\.html$/, "")
+            .replace(/\.html$/, "");
 
         const menuItems = document.querySelectorAll(".nav__menu_item");
+
         menuItems.forEach(item => {
             let href = item.getAttribute("href");
             if (!href) return;
 
-            // Normaliza el href: quita .html y barra final
-            href = href.replace(/\/$/, "").replace(/\.html$/, "");
-            if (!href.startsWith("/")) {
-                href = "/" + href;
-            }
+            href = href
+                .replace(/\/$/, "")
+                .replace(/index\.html$/, "")
+                .replace(/\.html$/, "");
+
+            if (!href.startsWith("/")) href = "/" + href;
+            if (!currentPath.startsWith("/")) currentPath = "/" + currentPath;
 
             if (href === currentPath) {
                 item.classList.add("active");
             }
         });
     });
+
 </script>
