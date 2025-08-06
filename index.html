@@ -31,7 +31,7 @@
                 <a class="nav__menu_item" href="contacto.html">Contacto</a>
                 <a class="nav__menu_item" href="promocionar.html">Promocionar</a>
                 <a class="nav__menu_item" href="donaciones.html">Donacioness</a>
-                <a class="nav__menu_item" href="afilicacion.html">Afíliate</a>
+                <a class="nav__menu_item" href="afiliacion.html">Afíliate</a>
             </nav>
         </nav>
         </div>
@@ -57,7 +57,7 @@
                 <a class="nav__menu_item item__fixed" href="contacto.html">Contacto</a>
                 <a class="nav__menu_item item__fixed" href="promocionar.html">Promocionar</a>
                 <a class="nav__menu_item item__fixed" href="donaciones.html">Donaciones</a>
-                <a class="nav__menu_item item__fixed" href="afilicacion.html">Afíliate</a>
+                <a class="nav__menu_item item__fixed" href="afiliacion.html">Afíliate</a>
             </div>
         </nav>
         </div>
@@ -344,7 +344,7 @@
                     <br>
                     <p>Todo esto es una mínima parte de lo que han podido encontrar, estamos hablando de una base de
                         datos de 25 millones de filas donde se han descargado 1.000 filas que se corresponden con un
-                        gasto total de 1.968 millones de  euros de dinero público español gastado.
+                        gasto total de 1.968 millones de euros de dinero público español gastado.
 
                         ¿Dónde acaba parte de este dinero que se entrega a través de ONG's? A ver si os lo imagináis...
                         Podéis investigar a donde viajan nuestros políticos españoles. </p>
@@ -445,7 +445,7 @@
                 <div class="contenedor__qr__enlace">
                     <img src="imagenes/logoLAP2.png" class="logo__img__parrafo">
                     <button class="enlace__afiliacion" tabindex="-1">
-                        <a href="afilicacion.html" target="_blank">Pincha aquí</a>
+                        <a href="afiliacion.html" target="_blank">Pincha aquí</a>
                 </div>
             </div>
         </div>
@@ -1151,7 +1151,7 @@
             <a class="nav__footer_item" href="contacto.html">Contacto</a> |
             <a class="nav__footer_item" href="promocionar.html">Promocionar</a> |
             <a class="nav__footer_item" href="donaciones.html">Donaciones</a> |
-            <a class="nav__footer_item" href="afilicacion.html">Afíliate</a>
+            <a class="nav__footer_item" href="afiliacion.html">Afíliate</a>
         </p>
         <div class="contenedor__safeCreativeFooter">
 
@@ -1192,5 +1192,35 @@
         toggleBtn.addEventListener('click', () => {
             menu.classList.toggle('show');
         });
+    });
+</script>
+
+<script>
+    // Solo aplicar en pantallas táctiles
+    document.addEventListener("DOMContentLoaded", () => {
+        const panel = document.querySelector(".boton__comparte");
+        let abierto = false;
+
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+            panel.addEventListener("touchstart", function (e) {
+
+                if (abierto) return;
+
+
+                e.preventDefault();
+                panel.classList.add("activo");
+                abierto = true;
+
+                const cerrar = (ev) => {
+                    if (!ev.target.closest(".boton__comparte")) {
+                        panel.classList.remove("activo");
+                        abierto = false;
+                        document.removeEventListener("touchstart", cerrar);
+                    }
+                };
+
+                document.addEventListener("touchstart", cerrar);
+            }, { passive: false });
+        }
     });
 </script>

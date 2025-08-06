@@ -127,6 +127,13 @@ html {
   filter: brightness(100%);
 }
 
+/* modo movil boton comparte*/
+.boton__comparte.activo {
+  left: 0 !important;
+  background-color: var(--color-unico);
+  filter: brightness(100%);
+}
+/* modo movil boton comparte*/
 
 .header__main {
   background-color: black;
@@ -670,6 +677,7 @@ footer a:hover {
   max-height: 354px !important;
   pointer-events: auto;
 }
+
 .profile-card:hover .custom__height4 {
   max-height: 435px !important;
   pointer-events: auto;
