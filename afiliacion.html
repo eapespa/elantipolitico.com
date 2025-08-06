@@ -306,3 +306,80 @@
         }
     });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Rellenar el formulario si hay datos guardados
+  const savedData = sessionStorage.getItem("formData");
+  if (savedData) {
+    const data = JSON.parse(savedData);
+    const form = document.getElementById("afiliacion-form");
+
+    form.nombre.value = data.nombre || "";
+    form.apellido1.value = data.apellido1 || "";
+    form.apellido2.value = data.apellido2 || "";
+    form.email.value = data.email || "";
+    form.dni.value = data.dni || "";
+    form.provincia.value = data.provincia || "";
+
+    if (data.tipo) {
+      const tipoRadio = form.querySelector(`input[name="tipo"][value="${data.tipo}"]`);
+      if (tipoRadio) tipoRadio.checked = true;
+    }
+
+    if (data.cuota) {
+      form.cuota.value = data.cuota;
+    }
+
+    if (data.monto) {
+      form.monto.value = data.monto;
+    }
+
+    // Mostrar campos según tipo
+    toggleFields(data.tipo || "suscripcion");
+  }
+
+  // Mostrar u ocultar campos al cambiar tipo de pago
+  document.querySelectorAll('input[name="tipo"]').forEach((radio) => {
+    radio.addEventListener("change", (e) => {
+      toggleFields(e.target.value);
+    });
+  });
+
+  function toggleFields(tipo) {
+    const cuotaLabel = document.getElementById("cuota-label");
+    const donacionLabel = document.getElementById("monto-donacion-label");
+
+    if (tipo === "donacion") {
+      cuotaLabel.style.display = "none";
+      donacionLabel.style.display = "block";
+    } else {
+      cuotaLabel.style.display = "block";
+      donacionLabel.style.display = "none";
+    }
+  }
+
+  // Guardar datos al hacer submit
+  document.getElementById("afiliacion-form").addEventListener("submit", (e) => {
+    const form = e.target;
+    const formData = {
+      nombre: form.nombre.value,
+      apellido1: form.apellido1.value,
+      apellido2: form.apellido2.value,
+      email: form.email.value,
+      dni: form.dni.value,
+      provincia: form.provincia.value,
+      tipo: form.tipo.value,
+      cuota: form.cuota?.value || null,
+      monto: form.monto?.value || null,
+    };
+
+    sessionStorage.setItem("formData", JSON.stringify(formData));
+  });
+
+  // Limpiar datos si es página de éxito
+  if (window.location.pathname.includes("success")) {
+    sessionStorage.removeItem("formData");
+  }
+});
+</script>
