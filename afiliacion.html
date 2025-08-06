@@ -407,3 +407,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname; // p.ej: "/promocionar"
+    
+    const menuItems = document.querySelectorAll(".nav__menu_item");
+    menuItems.forEach(item => {
+        const href = item.getAttribute("href");
+        
+        // Normalizamos href para que tenga / al inicio si no la tiene
+        let normalizedHref = href.startsWith("/") ? href : "/" + href;
+
+        // Comparamos el path completo
+        if (normalizedHref === currentPath) {
+            item.classList.add("active");
+        }
+    });
+});
+</script>
