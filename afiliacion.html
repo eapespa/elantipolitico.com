@@ -98,6 +98,9 @@
                     Junta Electoral y que se adjuntaría en esta Web para su descarga) a la hora de constituir el partido
                     y presentarse a
                     las elecciones.</p>
+                <div class="contenedor__qr__enlace">
+                    <img src="imagenes/logoLAP2.png" class="logo__img__parrafo">
+                </div>
 
 
             </div>
@@ -106,67 +109,85 @@
                 <section id="one" class="style1 style__sublinea">
                     <div class="inner1">
                         <header class="align-center">
-                            <h2>formulario de inscripción</h2>
+                            <h2>formulario de afiliación</h2>
                         </header>
                     </div>
                 </section>
-                <div class="contenedor__qr__enlace">
-                    <img src="imagenes/QRegistro.png" tabindex="-1" alt="QR" class="codigo__qr">
 
-                    <button class="enlace__afiliacion" tabindex="-1">
-                        <a href="https://forms.office.com/r/ahWRq5S0QX" target="_blank">Afíliate!</a>
-                </div>
-
-
-
-            </div>
-
-            <div class="mainTercero__parrafo__afiliacion3">
-
-                <form id="afiliacion-form">
-                    <label>
-                        Nombre:
-                        <input type="text" name="nombre" required />
+                <!-- <form id="suscripcion-form">
+                    <label class="text__formu__afiliacion">Nombre* <br>
+                        <input type="text" name="nombre" class="input__formu__afiliacion" required></label><br><br>
+                    <label class="text__formu__afiliacion">Primer apellido* <br>
+                        <input type="text" name="apellido1" class="input__formu__afiliacion" required></label><br><br>
+                    <label class="text__formu__afiliacion">Segundo apellido* <br>
+                        <input type="text" name="apellido2" class="input__formu__afiliacion" required></label><br><br>
+                    <label class="text__formu__afiliacion">Correo electrónico* <br>
+                        <input type="email" name="email" class="input__formu__afiliacion" required></label><br><br>
+                    <label class="text__formu__afiliacion">Dni* <br>
+                        <input type="text" name="dni" class="input__formu__afiliacion" required
+                            pattern="^\d{8}[A-Za-z]$" title="Ejemplo: 12345678Z"
+                            placeholder="Ejemplo: 12345678Z"></label><br><br>
+                    <label class="text__formu__afiliacion">Provincia* <br>
+                        <select name="provincia" class="select__formu__afiliacion" required>
+                            <option value="" disabled selected>Selecciona tu provincia ...</option>
+                            <option value="Álava">Álava</option>
+                            <option value="Albacete">Albacete</option>
+                            <option value="Alicante">Alicante</option>
+                            <option value="Almería">Almería</option>
+                            <option value="Asturias">Asturias</option>
+                            <option value="Ávila">Ávila</option>
+                            <option value="Badajoz">Badajoz</option>
+                            <option value="Barcelona">Barcelona</option>
+                            <option value="Burgos">Burgos</option>
+                            <option value="Cáceres">Cáceres</option>
+                            <option value="Cádiz">Cádiz</option>
+                            <option value="Cantabria">Cantabria</option>
+                            <option value="Castellón">Castellón</option>
+                            <option value="Ciudad Real">Ciudad Real</option>
+                            <option value="Córdoba">Córdoba</option>
+                            <option value="La Coruña">La Coruña</option>
+                            <option value="Cuenca">Cuenca</option>
+                            <option value="Gerona">Gerona</option>
+                            <option value="Granada">Granada</option>
+                            <option value="Guadalajara">Guadalajara</option>
+                            <option value="Guipúzcoa">Guipúzcoa</option>
+                            <option value="Huelva">Huelva</option>
+                            <option value="Huesca">Huesca</option>
+                            <option value="Islas Baleares">Islas Baleares</option>
+                            <option value="Jaén">Jaén</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Las Palmas">Las Palmas</option>
+                            <option value="León">León</option>
+                            <option value="Lérida">Lérida</option>
+                            <option value="Lugo">Lugo</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Málaga">Málaga</option>
+                            <option value="Murcia">Murcia</option>
+                            <option value="Navarra">Navarra</option>
+                            <option value="Orense">Orense</option>
+                            <option value="Palencia">Palencia</option>
+                            <option value="Pontevedra">Pontevedra</option>
+                            <option value="Salamanca">Salamanca</option>
+                            <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                            <option value="Segovia">Segovia</option>
+                            <option value="Sevilla">Sevilla</option>
+                            <option value="Soria">Soria</option>
+                            <option value="Tarragona">Tarragona</option>
+                            <option value="Teruel">Teruel</option>
+                            <option value="Toledo">Toledo</option>
+                            <option value="Valencia">Valencia</option>
+                            <option value="Valladolid">Valladolid</option>
+                            <option value="Vizcaya">Vizcaya</option>
+                            <option value="Zamora">Zamora</option>
+                            <option value="Zaragoza">Zaragoza</option>
+                            <option value="Ceuta">Ceuta</option>
+                            <option value="Melilla">Melilla</option>
+                        </select>
                     </label><br><br>
 
-                    <label>
-                        Primer apellido:
-                        <input type="text" name="apellido1" required />
-                    </label><br><br>
 
-                    <label>
-                        Segundo apellido:
-                        <input type="text" name="apellido2" required />
-                    </label><br><br>
-
-                    <label>
-                        Correo electrónico:
-                        <input type="email" name="email" required />
-                    </label><br><br>
-
-                    <label>
-                        DNI:
-                        <input type="text" name="dni" required />
-                    </label><br><br>
-
-                    <label>
-                        Provincia:
-                        <input type="text" name="provincia" required />
-                    </label><br><br>
-
-                    <fieldset>
-                        <legend>Tipo de pago:</legend>
-                        <label>
-                            <input type="radio" name="tipo" value="suscripcion" checked> Suscripción mensual
-                        </label><br>
-                        <label>
-                            <input type="radio" name="tipo" value="donacion"> Donación única
-                        </label>
-                    </fieldset><br>
-
-                    <label id="cuota-label">
-                        Cuota mensual:
-                        <select name="cuota">
+                    <label class="text__formu__afiliacion">Cuota mensual:
+                        <select name="cuota" required class="input__formu__boxPrice__afiliacion">
                             <option value="5">5 €</option>
                             <option value="10">10 €</option>
                             <option value="15">15 €</option>
@@ -174,21 +195,14 @@
                         </select>
                     </label><br><br>
 
-                    <label id="monto-donacion-label" style="display: none;">
-                        Monto de la donación (€):
-                        <input type="number" name="monto" step="0.01" min="1" />
-                        <span style="cursor: help; margin-left: 6px;"
-                            title="Puedes usar el punto para crear decimales. Ejemplo: 25.00€ (veinticinco euros), 2500€ (dos mil quinientos euros) ">ℹ️</span>
-
-                    </label><br><br>
-
-                    <button type="submit">Ir al pago</button>
-                    <button type="button" id="reset-form">Limpiar formulario</button>
-                </form>
-
-
-
+                    <div class="caja__botones__form_afiliacion">
+                        <button type="submit" class="boton__pago__afiliciacion">Ir al pago</button>
+                        <button type="button" id="reset-form" class="boton__limpiar__formu__afiliacion">Limpiar
+                            formulario</button>
+                    </div>
+                </form> -->
             </div>
+
         </div>
     </main>
 
@@ -251,28 +265,10 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3"); // Reemplaza con tu clave pública de pruebas
+    const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
 
-    const form = document.getElementById("afiliacion-form");
-    const tipoRadios = form.querySelectorAll('input[name="tipo"]');
-    const donacionRadio = form.querySelector('input[value="donacion"]');
-    const cuotaLabel = document.getElementById("cuota-label");
-    const montoLabel = document.getElementById("monto-donacion-label");
+    const form = document.getElementById("suscripcion-form");
 
-    // Mostrar/ocultar campos según tipo de pago
-    tipoRadios.forEach(radio => {
-        radio.addEventListener("change", () => {
-            if (donacionRadio.checked) {
-                cuotaLabel.style.display = "none";
-                montoLabel.style.display = "block";
-            } else {
-                cuotaLabel.style.display = "block";
-                montoLabel.style.display = "none";
-            }
-        });
-    });
-
-    // Enviar datos al backend para crear sesión de pago
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -283,9 +279,9 @@
             email: form.email.value,
             dni: form.dni.value,
             provincia: form.provincia.value,
-            tipo: form.tipo.value,
-            cuota: form.cuota ? parseInt(form.cuota.value) : null,
-            monto: form.monto ? parseFloat(form.monto.value) : null
+            tipo: "suscripcion",
+            cuota: parseInt(form.cuota.value),
+            monto: null
         };
 
         try {
@@ -305,6 +301,11 @@
             console.error(error);
             alert("Error al conectar con el servidor.");
         }
+    });
+
+    // Botón limpiar
+    document.getElementById("reset-form").addEventListener("click", () => {
+        form.reset();
     });
 </script>
 

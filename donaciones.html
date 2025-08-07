@@ -112,15 +112,29 @@
                 </div>
 
 
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <img src="imagenes/paypaltransparente.png" alt="instagram" class="profile-img" />
-                    </div>
-                    <div class="profile-body">
-                        <h3>PAYPAL</h3>
-                        <p></p>
-                    </div>
-                </div>
+                <!-- <form id="donacion-form">
+                    <label>Nombre: <input type="text" name="nombre" required></label><br><br>
+                    <label>Primer apellido: <input type="text" name="apellido1" required></label><br><br>
+                    <label>Segundo apellido: <input type="text" name="apellido2" required></label><br><br>
+                    <label>Correo electrónico: <input type="email" name="email" required></label><br><br>
+                    <label>DNI: <input type="text" name="dni" required></label><br><br>
+                    <label>Provincia: <input type="text" name="provincia" required></label><br><br>
+
+                    <label>Monto de la donación (€):
+                        <input type="number" name="monto" required step="0.01" min="1">
+                        <span class="tooltip">ℹ️
+                            <span class="tooltip-text">
+                                Puedes usar el punto para crear decimales.<br>
+                                Ejemplo:<br>
+                                25.00€ (veinticinco euros)<br>
+                                2500€ (dos mil quinientos euros)
+                            </span>
+                        </span>
+                    </label><br><br>
+
+                    <button type="submit">Ir al pago</button>
+                    <button type="button" id="reset-form">Limpiar formulario</button>
+                </form> -->
 
             </div>
         </div>
@@ -198,6 +212,52 @@
             if (href === currentPath) {
                 item.classList.add("active");
             }
+        });
+    });
+</script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
+
+        const form = document.getElementById("donacion-form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+                nombre: form.nombre.value,
+                apellido1: form.apellido1.value,
+                apellido2: form.apellido2.value,
+                email: form.email.value,
+                dni: form.dni.value,
+                provincia: form.provincia.value,
+                tipo: "donacion",
+                cuota: null,
+                monto: parseFloat(form.monto.value)
+            };
+
+            try {
+                const res = await fetch("https://afiliacionlap.elantipoliticoespa.workers.dev", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const session = await res.json();
+                if (session.id) {
+                    stripe.redirectToCheckout({ sessionId: session.id });
+                } else {
+                    alert("Error al crear la sesión de pago.");
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Error al conectar con el servidor.");
+            }
+        });
+
+        document.getElementById("reset-form").addEventListener("click", () => {
+            form.reset();
         });
     });
 </script>

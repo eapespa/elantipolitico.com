@@ -268,6 +268,21 @@ html {
     box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
 }
 
+.contenedor__qr__enlace {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.logo__img__parrafo {
+    width: 92px;
+    padding: 1rem;
+    border-radius: 75px;
+    border: 5px #262626 solid;
+    box-shadow: 2px 3px 5px rgb(0 0 0 / 55%);
+}
+
 .footer_safecreative {
     text-align: center;
     width: 5rem;
@@ -283,9 +298,85 @@ html {
     border-radius: 40px;
     padding: 2rem;
     margin: 2rem 0 2rem 0;
-    height: 17rem;
+    height: 42rem;
     box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
 }
+
+.text__formu__afiliacion {
+    font-size: 18px;
+
+}
+
+.input__formu__afiliacion {
+    height: 24px;
+    width: 100%;
+}
+
+.input__formu__boxPrice__afiliacion {
+    width: 10%;
+    height: 2rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.caja__botones__form_afiliacion {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.boton__pago__afiliciacion {
+    font-size: 20px;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 40px;
+    border: 0;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+    background-color: rgb(1, 53, 38);
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: scale(1);
+}
+
+.boton__pago__afiliciacion:hover {
+    background-color: var(--color-unico);
+}
+
+.boton__pago__afiliciacion:active {
+    transform: scale(0.80);
+    box-shadow: 2px 3px 3px rgb(0 0 0 / 30%);
+}
+
+.boton__limpiar__formu__afiliacion {
+    font-size: 20px;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 40px;
+    border: 0;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+    background-color: rgb(1, 53, 38);
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: scale(1);
+}
+
+.boton__limpiar__formu__afiliacion:hover {
+    background-color: var(--color-unico);
+}
+
+.boton__limpiar__formu__afiliacion:active {
+    transform: scale(0.80);
+    box-shadow: 2px 3px 3px rgb(0 0 0 / 30%);
+}
+
+select.select__formu__afiliacion {
+    height: 30px;
+    width: 102%;
+    font-size: 14px;
+}
+
 .mainTercero__parrafo__afiliacion3 {
     color: black;
     width: 51rem;
@@ -296,38 +387,6 @@ html {
     margin: 2rem 0 2rem 0;
     height: 29rem;
     box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
-}
-
-.contenedor__qr__enlace {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.codigo__qr {
-    box-shadow: 0 5px 5px rgb(0 0 0 / 22%);
-}
-
-.enlace__afiliacion {
-    width: 12rem;
-    height: 3rem;
-    background-color: rgb(1, 53, 38);
-    font-weight: 700;
-    font-size: 20px;
-    border-radius: 40px;
-    box-shadow: 0 3px 2px rgb(0 0 0 / 27%);
-    border: 0;
-    cursor: pointer;
-    transition: 1s ease;
-}
-
-.enlace__afiliacion:hover {
-     background-color: var(--color-unico);
-}
-
-.enlace__afiliacion a {
-    text-decoration: none;
-    color: white;
 }
 
 footer {

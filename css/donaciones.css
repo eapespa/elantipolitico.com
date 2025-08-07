@@ -256,7 +256,36 @@ html {
     box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
 }
 
+.tooltip {
+  position: relative;
+  cursor: help;
+  display: inline-block;
+}
 
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 8px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%; /* encima del ícono */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  font-size: 14px;
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip:focus-within .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
 .mainTercero__parrafo__donaciones {
     color: black;
     width: 36rem;
