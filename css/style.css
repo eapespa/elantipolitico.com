@@ -142,6 +142,8 @@ html {
 
 .logo__img {
   width: 6rem;
+  top: 8px;
+  position: relative;
 }
 
 .header__titulo {
@@ -162,7 +164,7 @@ html {
 .header__main__contenedorLogo {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
@@ -828,6 +830,7 @@ footer a:hover {
 
   .logo__img {
     width: 5rem;
+    top: 0;
 
   }
 }
