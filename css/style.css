@@ -133,6 +133,7 @@ html {
   background-color: var(--color-unico);
   filter: brightness(100%);
 }
+
 /* modo movil boton comparte*/
 
 .header__main {
@@ -667,7 +668,12 @@ footer a:hover {
 }
 
 .profile-card:hover .custom__height {
-  max-height: 288px !important;
+  max-height: 300px !important;
+  pointer-events: auto;
+}
+
+.profile-card:hover .custom__height1 {
+  max-height: 320px !important;
   pointer-events: auto;
 }
 
@@ -676,15 +682,33 @@ footer a:hover {
   pointer-events: auto;
 }
 
-.profile-card:hover .custom__height4 {
-  max-height: 435px !important;
+.profile-card:hover .custom__height2b {
+  max-height: 384px !important;
   pointer-events: auto;
+}
+
+.profile-card:hover .custom__height3 {
+  max-height: 392px !important;
+  pointer-events: auto;
+}
+
+.profile-card:hover .custom__height4 {
+  max-height: 576px !important;
+  pointer-events: auto;
+}
+
+@media (max-width:400px) {
+  .mainSecond__customParrafoFinal {
+    padding-top: 18rem!important;
+  }
 }
 
 .profile-card:hover .profile-body {
   max-height: 222px;
   pointer-events: auto;
 }
+
+
 
 .profile-card:hover .profile-body,
 .profile-header:focus+.profile-body {
