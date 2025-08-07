@@ -142,9 +142,6 @@ html {
 
 .logo__img {
   width: 6rem;
-  padding: 1rem;
-  top: 8px;
-  position: relative;
 }
 
 .header__titulo {
@@ -830,7 +827,7 @@ footer a:hover {
   }
 
   .logo__img {
-    width: 8rem;
+    width: 5rem;
 
   }
 }
