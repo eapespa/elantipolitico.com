@@ -377,18 +377,6 @@ select.select__formu__afiliacion {
     font-size: 14px;
 }
 
-.mainTercero__parrafo__afiliacion3 {
-    color: black;
-    width: 51rem;
-    text-align: justify;
-    background-color: white;
-    border-radius: 40px;
-    padding: 2rem;
-    margin: 2rem 0 2rem 0;
-    height: 29rem;
-    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
-}
-
 footer {
     background-color: black;
     color: #ccc;

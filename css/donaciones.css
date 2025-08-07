@@ -189,10 +189,10 @@ html {
 }
 
 .mainTercero__parrafoPrimero {
-    font-size: 16px;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .mainTercero {
@@ -234,6 +234,39 @@ html {
     height: 2px;
     background-color: rgba(0, 0, 0, 0.432);
 }
+.style2 {
+    position: relative;
+    text-align: center;
+}
+
+.style2::before {
+    content: '';
+}
+
+.style2 h2 {
+    z-index: 2;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 .5rem 0;
+    padding: 0 0 1rem 0;
+    letter-spacing: .25rem;
+    margin-bottom: 3rem;
+}
+
+.style2 h2::after {
+    content: '';
+    position: absolute;
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 56%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.432);
+}
+
 
 .footer_safecreative {
     text-align: center;
@@ -255,37 +288,133 @@ html {
     align-items: center;
     box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
 }
+.mainTercero__parrafo__donaciones {
+    color: black;
+    width: 32rem;
+    text-align: justify;
+    background-color: white;
+    border-radius: 40px;
+    padding: 2rem;
+    margin: 2rem 0 1rem 0;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+}
+
+.mainTercero__parrafo__donaciones2 {
+    color: black;
+    width: 32rem;
+    background-color: white;
+    border-radius: 40px;
+    padding: 2rem;
+    margin: 2rem 0 2rem 0;
+    height: 44rem;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+}
 
 .tooltip {
-  position: relative;
-  cursor: help;
-  display: inline-block;
+    position: relative;
+    cursor: help;
+    display: inline-block;
 }
 
 .tooltip .tooltip-text {
-  visibility: hidden;
-  width: 220px;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  padding: 8px;
-  border-radius: 5px;
-  position: absolute;
-  z-index: 10;
-  bottom: 125%; /* encima del ícono */
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
+    visibility: hidden;
+    width: 220px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+    bottom: 103%;
+    left: 118px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
 
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .tooltip:hover .tooltip-text,
 .tooltip:focus-within .tooltip-text {
-  visibility: visible;
-  opacity: 1;
+    visibility: visible;
+    opacity: 1;
 }
+
+.text__formu__donaciones {
+    font-size: 18px;
+
+}
+
+.input__formu__donaciones {
+    height: 24px;
+    width: 100%;
+}
+
+select.select__formu__donaciones {
+    height: 30px;
+    width: 102%;
+    font-size: 14px;
+}
+
+.caja__botones__form_donaciones {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.number__formu__donaciones {
+    height: 24px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.boton__pago__donaciones {
+    font-size: 20px;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 40px;
+    border: 0;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+    background-color: rgb(1, 53, 38);
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: scale(1);
+}
+
+.boton__pago__donaciones:hover {
+    background-color: var(--color-unico);
+}
+
+.boton__pago__donaciones:active {
+    transform: scale(0.80);
+    box-shadow: 2px 3px 3px rgb(0 0 0 / 30%);
+}
+
+.boton__limpiar__formu__donaciones {
+    font-size: 20px;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 40px;
+    border: 0;
+    box-shadow: 4px 5px 5px rgb(0 0 0 / 22%);
+    background-color: rgb(1, 53, 38);
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: scale(1);
+}
+
+.boton__limpiar__formu__donaciones:hover {
+    background-color: var(--color-unico);
+}
+
+.boton__limpiar__formu__donaciones:active {
+    transform: scale(0.80);
+    box-shadow: 2px 3px 3px rgb(0 0 0 / 30%);
+}
+
 .mainTercero__parrafo__donaciones {
     color: black;
     width: 36rem;
@@ -347,6 +476,7 @@ footer {
     display: grid;
     min-height: 5dvh;
     grid-template-rows: auto 1fr auto;
+    margin-top: 3rem;
 }
 
 .footer_banderaEspaña {
