@@ -262,7 +262,7 @@ html {
     right: 0;
     bottom: 0;
     left: 0;
-    width: 56%;
+    width: 86%;
     height: 2px;
     background-color: rgba(0, 0, 0, 0.432);
 }
@@ -561,4 +561,12 @@ footer a:hover {
     .custom__fixed__header__nav {
         height: auto;
     }
+}
+
+@media (max-width: 768px) {
+.style2 h2::after {
+
+    width: 56%;
+
+}
 }
