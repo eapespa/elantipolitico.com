@@ -189,11 +189,13 @@ html {
     height: 2px;
     background-color: rgb(167 167 167 / 65%);
 }
+
 @media (max-width:600px) {
     .style1 h2::after {
         width: 55%;
     }
 }
+
 .style2 {
     position: relative;
     text-align: center;
@@ -238,11 +240,13 @@ html {
     height: 2px;
     background-color: rgb(167 167 167 / 65%);
 }
+
 @media (max-width:600px) {
     .style2 h2::after {
         width: 30%;
     }
 }
+
 .custom__margin_bottom {
     margin-top: 3rem;
 }
@@ -616,13 +620,25 @@ footer a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 2rem;
+}
+.custom__margin__top {
+    margin-top: 2rem;
 }
 
+.custom__margin__top2 {
+margin-top: 2rem;
+}
+@media (max-width:1038px) {
+.custom__margin__top2 {
+    margin-top: 1rem;
+}
+}
 .custom__width__parrafoPrimero {
     background-color: var(--color-unico);
 }
 
-.custom__flex__cards .card {
+/* .custom__flex__cards .card {
     background-color: #d9d9d9;
     width: 22rem;
     height: 12rem;
@@ -632,11 +648,11 @@ footer a:hover {
     align-items: center;
     margin: 2rem;
     color: black;
-}
+} */
 
-.custom__flex__cards .card_blanca {
+/* .custom__flex__cards .card_blanca {
     background-color: white;
-}
+} */
 
 .custom__flex__cards .header_card {
     padding: 0 14px;
@@ -686,7 +702,8 @@ footer a:hover {
 }
 
 .custom__flex__cards .profile-img_card {
-    width: 8rem;
+    width: 100%;
+    border: 1px solid black;
 }
 
 .custom__flex__cards .barra__central {
