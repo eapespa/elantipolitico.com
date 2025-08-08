@@ -269,10 +269,8 @@ html {
     border-radius: 40px;
     box-shadow: 4px 5px 5px rgb(0 0 0 / 30%);
     width: 52rem;
-    text-align: justify;
     margin: auto;
     margin-bottom: 2rem;
-    hyphens: auto;
 }
 
 .contenedor__qr__enlace__gmail {
