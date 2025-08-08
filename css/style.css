@@ -733,7 +733,6 @@ footer a:hover {
   display: flex;
   padding-bottom: 4px;
   font-size: 13px;
-  hyphens: auto;
   text-align: left;
 }
 
@@ -796,7 +795,6 @@ footer a:hover {
 
 .acordeon-content.open {
   padding: 1rem;
-  hyphens: auto;
 }
 
 .apartado::before {
@@ -921,7 +919,6 @@ footer a:hover {
   .custom__position {
     margin-left: 1rem !important;
     margin-right: 1rem !important;
-    hyphens: auto;
   }
 }
 

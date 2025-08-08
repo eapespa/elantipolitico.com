@@ -416,7 +416,6 @@ select.select__formu__donaciones {
 .mainTercero__parrafo__donaciones {
     color: black;
     width: 36rem;
-    text-align: justify;
 }
 
 .profile-card {
@@ -462,7 +461,6 @@ select.select__formu__donaciones {
     color: #666;
     margin: 0 0 15px;
     color: white;
-    text-align: justify;
 }
 
 footer {
