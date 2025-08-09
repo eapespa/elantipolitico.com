@@ -264,7 +264,7 @@ html {
 
 .mainSecond__parrafoPrimero {
     font-size: 16px;
-    padding: 3rem;
+    padding: 2rem;
     background-color: white;
     border-radius: 40px;
     box-shadow: 4px 5px 5px rgb(0 0 0 / 30%);
@@ -376,11 +376,11 @@ html {
 }
 
 .mainTercero {
-    padding-left: 3rem;
+    padding-left: 2rem;
     min-height: 300px;
     padding-top: 1rem;
     padding-bottom: 2rem;
-    padding-right: 3rem;
+    padding-right: 2rem;
 }
 
 
@@ -433,7 +433,7 @@ html {
     border-radius: 0 0 14px 14px;
     padding: 20px;
     color: white;
-    height: 20rem;
+    height: 21rem;
     box-sizing: border-box;
     z-index: 10;
     box-shadow: 0 5px 5px rgb(0 0 0 / 22%);

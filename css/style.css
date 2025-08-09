@@ -373,9 +373,9 @@ html {
 }
 
 .mainSecond__parrafoPrimero {
-  margin-left: 2rem;
+  margin-left: 1rem;
   font-size: 16px;
-  margin-right: 2rem;
+  margin-right: 1rem;
 
 }
 
@@ -418,7 +418,7 @@ html {
   text-transform: uppercase;
   font-size: 28px;
   font-weight: 300;
-  margin: 0 0 .5rem 0;
+  margin: 1rem 0 .5rem 0;
   padding: 0 0 1rem 0;
   letter-spacing: .25rem;
   margin-bottom: 3rem;
@@ -463,7 +463,7 @@ html {
   text-transform: uppercase;
   font-size: 28px;
   font-weight: 300;
-  margin: 0 0 .5rem 0;
+  margin: 1rem 0 .5rem 0;
   padding: 0 0 1rem 0;
   letter-spacing: .25rem;
   margin-bottom: 3rem;
@@ -878,8 +878,8 @@ footer a:hover {
 
 @media (max-width:690px) {
   .mainTercero {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   .mainTercero__parrafo {
