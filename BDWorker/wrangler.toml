@@ -1,0 +1,8 @@
+name = "mi-worker"
+main = "index.js"
+compatibility_date = "2025-08-08"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "afiliaciones_db"
+database_id = "96ebbb9b-8718-4059-b9a9-e65ce4056b00"

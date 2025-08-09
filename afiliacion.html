@@ -265,49 +265,50 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
+  const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
 
-    const form = document.getElementById("suscripcion-form");
+  const form = document.getElementById("suscripcion-form");
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const data = {
-            nombre: form.nombre.value,
-            apellido1: form.apellido1.value,
-            apellido2: form.apellido2.value,
-            email: form.email.value,
-            dni: form.dni.value,
-            provincia: form.provincia.value,
-            tipo: "suscripcion",
-            cuota: parseInt(form.cuota.value),
-            monto: null
-        };
+    const data = {
+      nombre: form.nombre.value,
+      apellido1: form.apellido1.value,
+      apellido2: form.apellido2.value,
+      email: form.email.value,
+      dni: form.dni.value,
+      provincia: form.provincia.value,
+      tipo: "suscripcion",            
+      cuota: parseInt(form.cuota.value), 
+      monto: null                       
+    };
 
-        try {
-            const res = await fetch("https://afiliacionlap.elantipoliticoespa.workers.dev", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
+    try {
+      const res = await fetch("https://afiliacionlap.elantipoliticoespa.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
 
-            const session = await res.json();
-            if (session.id) {
-                stripe.redirectToCheckout({ sessionId: session.id });
-            } else {
-                alert("Error al crear la sesión de pago.");
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Error al conectar con el servidor.");
-        }
-    });
+      const session = await res.json();
+      if (session.id) {
+        stripe.redirectToCheckout({ sessionId: session.id });
+      } else {
+        alert("Error al crear la sesión de pago.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error al conectar con el servidor.");
+    }
+  });
 
-    // Botón limpiar
-    document.getElementById("reset-form").addEventListener("click", () => {
-        form.reset();
-    });
+  // Botón limpiar
+  document.getElementById("reset-form").addEventListener("click", () => {
+    form.reset();
+  });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {

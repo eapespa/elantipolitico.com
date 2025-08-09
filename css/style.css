@@ -391,7 +391,7 @@ html {
 
   padding-left: 3rem;
   min-height: 300px;
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: 3rem;
   display: grid;
@@ -492,6 +492,7 @@ html {
   border-radius: 40px;
   margin-top: 2rem;
   box-shadow: 4px 5px 5px rgb(0 0 0 / 32%);
+  margin-bottom: 2rem;
 }
 
 
