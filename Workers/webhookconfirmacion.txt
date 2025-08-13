@@ -1,0 +1,115 @@
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, stripe-signature",
+};
+
+export default {
+  async fetch(request, env) {
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: corsHeaders });
+    }
+
+    if (request.method !== "POST") {
+      return new Response("Método no permitido", { status: 405 });
+    }
+
+    const webhookSecret = env.STRIPE_WEBHOOK_SECRET;
+
+    if (!webhookSecret) {
+      console.error("❌ STRIPE_WEBHOOK_SECRET no está configurado o es vacío");
+      return new Response("Error interno: STRIPE_WEBHOOK_SECRET no configurado", { status: 500, headers: corsHeaders });
+    }
+
+    try {
+      const payload = await request.text();
+      const signatureHeader = request.headers.get("stripe-signature");
+
+      if (!signatureHeader) {
+        console.log("❌ Falta stripe-signature");
+        return new Response("Falta la cabecera stripe-signature", { status: 400 });
+      }
+
+      const isValid = await verifyStripeSignature(payload, signatureHeader, webhookSecret);
+      if (!isValid) {
+        console.log("❌ Firma inválida");
+        return new Response("Firma inválida", { status: 400 });
+      }
+
+      const event = JSON.parse(payload);
+      console.log("✅ Evento recibido:", event.type);
+
+      const db = env.DB;
+
+      if (event.type === "checkout.session.completed") {
+        const session = event.data.object;
+        console.log("🔍 Session metadata:", session.metadata);
+
+        const registroId = session.metadata?.registroId;
+        if (!registroId) {
+          console.log("❌ No se encontró registroId");
+          return new Response("No se encontró registroId en metadata", { status: 400 });
+        }
+
+        const now = new Date().toISOString();
+
+        // Actualizar estado y confirmed_at
+        const result = await db
+          .prepare("UPDATE registros SET estado = 'confirmado', confirmed_at = ? WHERE id = ?")
+          .bind(now, registroId)
+          .run();
+
+        console.log(`📦 Filas modificadas: ${result.changes || 0}`);
+
+        return new Response(
+          result.changes > 0
+            ? "Pago confirmado y registro actualizado"
+            : "Registro no encontrado o ya confirmado",
+          { status: 200, headers: corsHeaders }
+        );
+      }
+
+      return new Response("Evento ignorado", { status: 200, headers: corsHeaders });
+    } catch (err) {
+      console.error("💥 Error en webhook:", err);
+      return new Response("Error: " + err.message, { status: 500, headers: corsHeaders });
+    }
+  },
+};
+
+async function verifyStripeSignature(payload, signatureHeader, secret) {
+  const elements = signatureHeader.split(",");
+  const timestampElement = elements.find((e) => e.startsWith("t="));
+  const v1Element = elements.find((e) => e.startsWith("v1="));
+
+  if (!timestampElement || !v1Element) return false;
+
+  const timestamp = timestampElement.split("=")[1];
+  const signature = v1Element.split("=")[1];
+  const message = `${timestamp}.${payload}`;
+
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["verify"]
+  );
+
+  const signatureBuffer = hexToBuffer(signature);
+
+  return crypto.subtle.verify(
+    "HMAC",
+    key,
+    signatureBuffer,
+    new TextEncoder().encode(message)
+  );
+}
+
+function hexToBuffer(hex) {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = parseInt(hex.substr(i * 2, 2), 16);
+  }
+  return bytes.buffer;
+}
