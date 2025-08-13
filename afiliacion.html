@@ -82,12 +82,12 @@
                     </div>
                 </section>
                 <p>Si has llegado hasta aquí es que quieres un cambio pero YA! Para llevarlo a cabo, te dejo
-                    un código QR o un enlace para afiliarte al partido y dejar clara tu postura con respecto a la nueva
+                    un formulario para afiliarte al partido y dejar clara tu postura con respecto a la nueva
                     España que quieres. </p>
 
-                <p>Los datos se guardarán en un documento tipo Excel (datos del dni más un correo) y no serán usados más
+                <p>Los datos se guardarán en una base de datos y no serán usados más
                     que para la comprobación del
-                    número de afiliados al partido. Afiliarte no conlleva ninguna cuota o gasto económico, no se
+                    número de afiliados al partido. No se
                     compartirán con terceros y en todo momento podrá ejercer su
                     derecho a la eliminación total de los mismos mandando un correo y manifestándolo. </p>
 
@@ -95,7 +95,7 @@
                     firma de todas las personas afiliadas para presentarlas ya que dada la ley actual, no podemos
                     presentarnos sin más, aunque tengamos 30 millones de votantes, necesitamos miles de
                     firmas de nuestros afiliados para presentarlas (usando el modelo oficial de aval que proporciona la
-                    Junta Electoral y que se adjuntaría en esta Web para su descarga) a la hora de constituir el partido
+                    Junta Electoral y que se adjuntaría en esta Web para su descarga) a la hora de inscribir el partido
                     y presentarse a
                     las elecciones.</p>
                 <div class="contenedor__qr__enlace">
@@ -265,48 +265,48 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
+    const stripe = Stripe("pk_test_51RskyN2U6h8FikYk4OWtm1Bb87eGwhweCXuA096PdluupA7t9iWJszovAIALAe2HjAbJqlSAnknCQsOLA4YRWqPT00Xol8HlO3");
 
-  const form = document.getElementById("suscripcion-form");
+    const form = document.getElementById("suscripcion-form");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-    const data = {
-      nombre: form.nombre.value,
-      apellido1: form.apellido1.value,
-      apellido2: form.apellido2.value,
-      email: form.email.value,
-      dni: form.dni.value,
-      provincia: form.provincia.value,
-      tipo: "suscripcion",            
-      cuota: parseInt(form.cuota.value), 
-      monto: null                       
-    };
+        const data = {
+            nombre: form.nombre.value,
+            apellido1: form.apellido1.value,
+            apellido2: form.apellido2.value,
+            email: form.email.value,
+            dni: form.dni.value,
+            provincia: form.provincia.value,
+            tipo: "suscripcion",
+            cuota: parseInt(form.cuota.value),
+            monto: null
+        };
 
-    try {
-      const res = await fetch("https://afiliacionlap.elantipoliticoespa.workers.dev", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+        try {
+            const res = await fetch("https://afiliacionlap.elantipoliticoespa.workers.dev", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
 
-      const session = await res.json();
-      if (session.id) {
-        stripe.redirectToCheckout({ sessionId: session.id });
-      } else {
-        alert("Error al crear la sesión de pago.");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Error al conectar con el servidor.");
-    }
-  });
+            const session = await res.json();
+            if (session.id) {
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } else {
+                alert("Error al crear la sesión de pago.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error al conectar con el servidor.");
+        }
+    });
 
-  // Botón limpiar
-  document.getElementById("reset-form").addEventListener("click", () => {
-    form.reset();
-  });
+    // Botón limpiar
+    document.getElementById("reset-form").addEventListener("click", () => {
+        form.reset();
+    });
 </script>
 
 
